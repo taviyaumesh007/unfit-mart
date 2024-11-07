@@ -1,23 +1,39 @@
-import logo from './logo.svg';
+// src/App.js
+
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import ProductList from './components/ProductList';
+import FilterSidebar from './components/FilterSidebar';
+import Header from './components/Header';
+import { setCategory, setSortOrder } from './redux/slice';
 import './App.css';
 
 function App() {
+  const dispatch = useDispatch();
+
+  // Get filter state from Redux store
+  const { selectedCategory, sortOrder,searchTerm  } = useSelector((state) => state.filters);
+  // Handle category change
+  const handleCategoryChange = (category) => {
+    dispatch(setCategory(category));
+  };
+
+  // Handle sort change
+  const handleSortChange = (sort) => {
+    dispatch(setSortOrder(sort));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-content">
+      <Header />
+      <div className="main-content">
+        <FilterSidebar
+          onCategoryChange={handleCategoryChange}
+          onSortChange={handleSortChange}
+          searchTerm={searchTerm}
+        />
+        <ProductList selectedCategory={selectedCategory} sortOrder={sortOrder} />
+      </div>
     </div>
   );
 }
