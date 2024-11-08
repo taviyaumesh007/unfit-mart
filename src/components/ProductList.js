@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from './ProductCard';
 import { useSelector } from 'react-redux';
+import Loader from './Loader';
 
 function ProductList() {
   const { selectedCategory, sortOrder, searchTerm } = useSelector((state) => state.filters);
@@ -28,10 +29,10 @@ function ProductList() {
   const filteredProducts = selectedCategory === 'All'
     ? products
     : products.filter((product) => {
-        const productCategory = product.category.trim().toLowerCase();
-        const selectedCategoryNormalized = selectedCategory.trim().toLowerCase();
-        return productCategory === selectedCategoryNormalized;
-      });
+      const productCategory = product.category.trim().toLowerCase();
+      const selectedCategoryNormalized = selectedCategory.trim().toLowerCase();
+      return productCategory === selectedCategoryNormalized;
+    });
 
   // Further filter by search term (product title)
   const searchFilteredProducts = filteredProducts.filter((product) => {
@@ -48,14 +49,24 @@ function ProductList() {
     return 0;
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader/>;
   if (error) return <p>{error}</p>;
 
   return (
-    <div className="product-list">
-      {sortedProducts.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
+    <div style={{width:'90%'}}>
+      <div className="list-header">
+        <h2 className="category-title">Multivitamins</h2>
+        <select className="sort-dropdown">
+          <option value="featured">Featured</option>
+          <option value="low-to-high">Price: Low to High</option>
+          <option value="high-to-low">Price: High to Low</option>
+        </select>
+      </div>
+      <div className="product-list">
+        {sortedProducts.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
     </div>
   );
 }

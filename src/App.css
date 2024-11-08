@@ -1,8 +1,29 @@
 /* App.css */
 :root {
-  --primary-color: #ff6f00; /* Store the color in a variable */
+  --primary-color: #EC4E1E;
+  ;
   --text-color: white;
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--text-color);
+  ;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
 .app-container {
   font-family: Arial, sans-serif;
   display: flex;
@@ -16,6 +37,7 @@
   color: var(--text-color);
   text-align: center;
   padding: 1rem 0;
+  border-radius: 15px;
 }
 
 .main-content {
@@ -44,46 +66,103 @@
 }
 
 .product-list {
-  width: 80%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
   gap: 20px;
   padding: 1rem;
 }
 
 .product-card {
   border: 1px solid #ddd;
-  padding: 1rem;
+  border-radius: 8px;
+  padding: 16px;
   text-align: center;
-  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
   transition: transform 0.2s;
+  width: 330px;
+  height: 480px;
+  border-radius: 10px;
+  opacity: 0px;
+
 }
 
 /* .product-card:hover {
   transform: translateY(-5px);
 } */
 
+.discount-badge {
+  background-color: var(--primary-color);
+  color: #fff;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 10px 0;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.favorit-badge {
+  padding: 9px 8px;
+  position: absolute;
+  top: 0px;
+  left: 320px;
+}
+
 .product-image {
-  height: 150px; /* Fixed height for the image container */
-  background-color: #f4f4f4;
-  margin-bottom: 10px;
+  height: 320px;
+  margin: 25px 0px;
   display: flex;
-  align-items: center; /* Center image vertically */
-  justify-content: center; /* Center image horizontally */
-  overflow: hidden; /* Hide any overflow from large images */
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .product-image img {
-  max-height: 100%; /* Make sure the image does not exceed the container height */
-  max-width: 100%; /* Make sure the image does not exceed the container width */
-  object-fit: contain; /* Scale the image to fit within the container while maintaining aspect ratio */
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 8px;
 }
 
 .product-details h4 {
   margin: 10px 0;
-  white-space: nowrap;          /* Prevent text from wrapping */
-  overflow: hidden;            /* Hide the overflowing text */
-  text-overflow: ellipsis;     /* Show ellipsis for overflowing text */
+  white-space: nowrap;
+  /* Prevent text from wrapping */
+  overflow: hidden;
+  /* Hide the overflowing text */
+  text-overflow: ellipsis;
+  /* Show ellipsis for overflowing text */
+}
+
+.product-title {
+  font-size: 16px;
+  color: #333;
+  margin: 8px 0;
+}
+
+.price-section {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.current-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.original-price {
+  font-size: 14px;
+  text-decoration: line-through;
+  color: #888;
+}
+
+.discount-percent {
+  font-size: 14px;
+  color: #28a745;
 }
 
 .price {
@@ -93,11 +172,16 @@
 
 .add-to-cart {
   background-color: var(--primary-color);
-  color: white;
+  color: #fff;
   border: none;
-  padding: 10px 15px;
+  padding: 13px 102px;
+  border-radius: 11px;
   cursor: pointer;
-  border-radius: 5px;
+  margin-top: 12px;
+  transition: background-color 0.2s;
+  font-weight: 500;
+  font-size: 20px;
+  font-family: Rubik;
 }
 
 .add-to-cart:hover {
@@ -105,13 +189,33 @@
 }
 
 ul li {
-  cursor: pointer; /* Changes the cursor to a pointer when hovering over the list item */
-  
+  cursor: pointer;
 }
+
 ul li:hover {
-  color: var(--primary-color); /* Changes the text color on hover */
+  color: var(--primary-color);
 }
 
-/* Styles for the modal overlay */
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
+.category-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
 
+.sort-dropdown {
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}

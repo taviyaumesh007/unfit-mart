@@ -1,7 +1,8 @@
 /* Styles for the modal overlay */
 
 :root {
-  --primary-color: #ff6f00; /* Store the color in a variable */
+  --primary-color: #EC4E1E;
+  ; /* Store the color in a variable */
   --text-color: white;
 }
 .modal-overlay {
