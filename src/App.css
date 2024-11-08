@@ -59,9 +59,9 @@
   transition: transform 0.2s;
 }
 
-.product-card:hover {
+/* .product-card:hover {
   transform: translateY(-5px);
-}
+} */
 
 .product-image {
   height: 150px; /* Fixed height for the image container */
@@ -87,16 +87,12 @@
 }
 
 .price {
-  color: #ff6f00;
+  color: var(--primary-color);
   font-weight: bold;
 }
 
-.discount {
-  color: red;
-}
-
 .add-to-cart {
-  background-color: #ff6f00;
+  background-color: var(--primary-color);
   color: white;
   border: none;
   padding: 10px 15px;
@@ -105,8 +101,17 @@
 }
 
 .add-to-cart:hover {
-  background-color: #e65c00;
+  background-color: var(--primary-color);
 }
 
+ul li {
+  cursor: pointer; /* Changes the cursor to a pointer when hovering over the list item */
+  
+}
+ul li:hover {
+  color: var(--primary-color); /* Changes the text color on hover */
+}
 
-/* General styling for the filter sidebar */
+/* Styles for the modal overlay */
+
+

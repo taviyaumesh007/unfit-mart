@@ -19,7 +19,7 @@ const filterSlice = createSlice({
       state.sortOrder = action.payload;
     },
     setSearchTerm: (state, action) => {
-      state.searchTerm = action.payload; // Update search term in the state
+      state.searchTerm = action.payload; 
     },
   },
 });
@@ -27,5 +27,4 @@ const filterSlice = createSlice({
 // Export actions to dispatch
 export const { setCategory, setSortOrder, setSearchTerm } = filterSlice.actions;
 
-// Export reducer to be added to store
 export default filterSlice.reducer;
