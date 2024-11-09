@@ -1,0 +1,31 @@
+.rating-filter {
+  font-family: Arial, sans-serif;
+}
+
+.rating-filter h4 {
+  border-top: 1px solid #ccc;
+  margin-bottom: 10px;
+  max-width: 229px;
+}
+
+.rating-option {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.rating-option input {
+  margin-right: 8px;
+}
+
+.stars {
+  color: orange;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.and-up {
+  margin-left: 4px;
+  font-size: 14px;
+  color: #333;
+}

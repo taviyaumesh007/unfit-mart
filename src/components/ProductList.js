@@ -53,7 +53,7 @@ function ProductList() {
   if (error) return <p>{error}</p>;
 
   return (
-    <div style={{width:'90%'}}>
+    <div style={{ width: '85%', padding:'1rem'}}>
       <div className="list-header">
         <h2 className="category-title">Multivitamins</h2>
         <select className="sort-dropdown">
